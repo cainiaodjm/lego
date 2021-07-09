@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2021-07-07 00:53:31
- * @LastEditTime: 2021-07-09 17:04:22
+ * @LastEditTime: 2021-07-09 19:00:48
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /lego/src/views/TemplateDetail.vue
@@ -16,9 +16,9 @@
   </div>
 </template>
 <script lang="ts">
-import { defineComponent } from "@vue/runtime-core"
+import { defineComponent } from "@vue/runtime-core";
 
 export default defineComponent({
   name: "TemplateDetail",
-})
+});
 </script>
