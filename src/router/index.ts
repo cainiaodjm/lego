@@ -1,6 +1,15 @@
+/*
+ * @Author: your name
+ * @Date: 2021-07-05 17:23:08
+ * @LastEditTime: 2021-07-07 01:00:03
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: /lego/src/router/index.ts
+ */
 import { createRouter, createWebHistory, RouteRecordRaw } from "vue-router";
 import Home from "../views/Home.vue";
-
+import Editor from "../views/Editor.vue";
+import TemplateDetail from "../views/TemplateDetail.vue";
 const routes: Array<RouteRecordRaw> = [
   {
     path: "/",
@@ -8,13 +17,14 @@ const routes: Array<RouteRecordRaw> = [
     component: Home,
   },
   {
-    path: "/about",
-    name: "About",
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () =>
-      import(/* webpackChunkName: "about" */ "../views/About.vue"),
+    path: "/editor",
+    name: "editor",
+    component: Editor,
+  },
+  {
+    path: "/template/:id",
+    name: "template",
+    component: TemplateDetail,
   },
 ];
 

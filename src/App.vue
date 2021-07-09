@@ -1,30 +1,35 @@
+<!--
+ * @Author: your name
+ * @Date: 2021-07-05 17:23:08
+ * @LastEditTime: 2021-07-09 18:54:00
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: /lego/src/App.vue
+-->
 <template>
-  <div id="nav">
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
+  <div class="homepage-container">
+    <a-layout :style="{ background: '#fff' }">
+      <a-layout-header class="header">
+        <div class="page-title">
+          <router-link to="/">慕课乐高</router-link>
+        </div>
+      </a-layout-header>
+      <a-layout-content class="home-layout">
+        <router-view></router-view>
+      </a-layout-content>
+      <a-layout-footer>Footer</a-layout-footer>
+    </a-layout>
   </div>
-  <router-view />
 </template>
+<script lang="ts">
+import { defineComponent } from "vue";
+// import Home from "./views/Home.vue";
 
-<style lang="scss">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
-
-#nav {
-  padding: 30px;
-
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-
-    &.router-link-exact-active {
-      color: #42b983;
-    }
-  }
-}
-</style>
+export default defineComponent({
+  name: "App",
+  components: {
+    // Home,
+  },
+});
+</script>
+<style lang="scss"></style>

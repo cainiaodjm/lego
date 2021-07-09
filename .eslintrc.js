@@ -1,3 +1,11 @@
+/*
+ * @Author: your name
+ * @Date: 2021-07-05 17:23:08
+ * @LastEditTime: 2021-07-09 17:16:58
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: /lego/.eslintrc.js
+ */
 module.exports = {
   root: true,
   env: {
@@ -16,6 +24,7 @@ module.exports = {
   rules: {
     "no-console": process.env.NODE_ENV === "production" ? "warn" : "off",
     "no-debugger": process.env.NODE_ENV === "production" ? "warn" : "off",
+    "prettier/prettier": "error",
   },
   overrides: [
     {
@@ -28,4 +37,4 @@ module.exports = {
       },
     },
   ],
-};
+}
