@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-07-05 17:23:08
- * @LastEditTime: 2021-07-09 17:16:58
+ * @LastEditTime: 2021-07-20 01:46:42
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /lego/.eslintrc.js
@@ -25,6 +25,8 @@ module.exports = {
     "no-console": process.env.NODE_ENV === "production" ? "warn" : "off",
     "no-debugger": process.env.NODE_ENV === "production" ? "warn" : "off",
     "prettier/prettier": "error",
+    "no-unused-vars": "off",
+    "@typescript-eslint/no-unused-vars": ["off"],
   },
   overrides: [
     {
@@ -37,4 +39,4 @@ module.exports = {
       },
     },
   ],
-}
+};

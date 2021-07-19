@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2021-07-05 19:01:53
- * @LastEditTime: 2021-07-09 18:57:33
+ * @LastEditTime: 2021-07-20 01:32:22
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /lego/src/components/TemplateList.vue
@@ -13,10 +13,7 @@
         <router-link :to="`/template/${item.id}`">
           <a-card hoverable>
             <template #cover>
-              <img
-                alt="example"
-                src="https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png"
-              />
+              <img alt="example" :src="item.coverImg" />
               <div class="hover-item">
                 <a-button size="large" type="primary">使用该模板创建</a-button>
               </div>
@@ -25,7 +22,7 @@
               <template #description>
                 <div class="description-detail">
                   <span>作者:{{ item.author }}</span>
-                  <span>{{ item.useNumber }}</span>
+                  <span>{{ item.copiedCount }}</span>
                 </div>
               </template>
             </a-card-meta>
@@ -36,18 +33,18 @@
   </div>
 </template>
 <script lang="ts">
-import { defineComponent } from "@vue/runtime-core";
+import { defineComponent, PropType } from "@vue/runtime-core";
+import { TemplateProps } from "../store/templates";
 
 export default defineComponent({
   name: "TemplateList",
   props: {
     list: {
-      type: Array,
-      default: () => {
-        return [];
-      },
+      type: Array as PropType<TemplateProps[]>,
+      required: true,
     },
   },
+
   setup() {
     return {};
   },

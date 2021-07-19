@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2021-07-05 17:23:08
- * @LastEditTime: 2021-07-09 18:54:00
+ * @LastEditTime: 2021-07-13 10:56:29
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /lego/src/App.vue
@@ -13,6 +13,9 @@
         <div class="page-title">
           <router-link to="/">慕课乐高</router-link>
         </div>
+        <div class="page-login">
+          <UserProfile :user="user"></UserProfile>
+        </div>
       </a-layout-header>
       <a-layout-content class="home-layout">
         <router-view></router-view>
@@ -22,14 +25,34 @@
   </div>
 </template>
 <script lang="ts">
-import { defineComponent } from "vue";
+import UserProfile from "./components/UserProfile.vue";
+import { defineComponent, computed } from "vue";
 // import Home from "./views/Home.vue";
+import { useStore } from "vuex";
+import { GlobalDataProps } from "./store/index";
 
 export default defineComponent({
   name: "App",
   components: {
     // Home,
+    UserProfile,
+  },
+  setup() {
+    const store = useStore<GlobalDataProps>();
+    const user = computed(() => store.state.user);
+    const templates = computed(() => store.state.templates);
+    console.log(user);
+    console.log(templates);
+    return {
+      user,
+    };
   },
 });
 </script>
-<style lang="scss"></style>
+<style lang="scss">
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+</style>

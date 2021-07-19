@@ -1,54 +1,43 @@
 <!--
  * @Author: your name
  * @Date: 2021-07-05 17:23:08
- * @LastEditTime: 2021-07-09 17:02:41
+ * @LastEditTime: 2021-07-20 01:49:59
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /lego/src/views/Home.vue
 -->
 <template>
-  <TemplateList :list="list"></TemplateList>
+  <TemplateList :list="testData"></TemplateList>
 </template>
 
 <script lang="ts">
-import { defineComponent } from "@vue/runtime-core"
-import TemplateList from "../components/TemplateList.vue"
+import { computed, defineComponent } from "@vue/runtime-core";
+
+import { useRouter } from "vue-router";
+import { useStore } from "vuex";
+import { GlobalDataProps } from "../store/index";
+import TemplateList from "../components/TemplateList.vue";
 export default defineComponent({
   name: "Home",
   components: {
     TemplateList,
   },
   setup() {
+    const router = useRouter();
+    setTimeout(() => {
+      // router.push({
+      //   name: "template",
+      //   params: { id: 1 },
+      // });
+    }, 2000);
+    const store = useStore<GlobalDataProps>();
+    const testData = computed(() => store.state.templates.data);
     return {
-      list: [
-        {
-          id: 1,
-          title: "list-1",
-          author: "A",
-          useNumber: 123,
-        },
-        {
-          id: 2,
-          title: "list-2",
-          author: "A",
-          useNumber: 123,
-        },
-        {
-          id: 3,
-          title: "list-3",
-          author: "A",
-          useNumber: 123,
-        },
-        {
-          id: 4,
-          title: "list-4",
-          author: "A",
-          useNumber: 123,
-        },
-      ],
-    }
+      router,
+      testData,
+    };
   },
-})
+});
 </script>
 <style lang="scss" scoped>
 .home-layout {
